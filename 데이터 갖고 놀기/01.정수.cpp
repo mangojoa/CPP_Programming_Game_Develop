@@ -9,6 +9,8 @@ int main() {
 이렇게 간단한 실행문을 어셈블리 언어로 풀어서 볼 수 있는 기능이다.
 */
 
+int hp = 100;
+
 /* [22.07.24] data와 bss
 0이 아닌 초기화 값이 있으면 .data 영역
 int hp = 100;
@@ -39,6 +41,26 @@ ex) unsigned char a; unsigned short b;
 -> 온라인 게임 = 4바이트 * 1만명
 */
 
+char a;  
+short b; 
+int c;   
+__int64 d; 
+
+unsigned char ua;
+unsigned short ub;
+unsigned int uc;
+unsigned __int64 ud;
+
 int main() {
-    cout << "dd";
+    // 정수 오버플로우
+    b = 32767;
+    b = b+1;
+    cout << b << endl; // -32768
+
+    // 정수 언더플로우
+    ub = 0;
+    ub = ub - 1;
+    cout << ub << endl; 
+
+    cout << "체력이 " << hp << " 남았습니다." << endl;
 }
