@@ -8,7 +8,7 @@ using namespace std;
 char : 알파벳 / 숫자 문자를 나타낸다.
 wchar_t : 유니코드 문자를 나타낸다.
 */
-char ch = '안';
+char ch = 'w';
 /* char ch = 97; 이라 정의하고 이를 cout 하면
 당연한 결과로 97이 출력될 것이라 생각했다.
 
@@ -31,8 +31,29 @@ utf 8
 
 utf 16
 알파벳, 숫자, 한글, 한자 등 거의 대부분 문자 2바이트 
-아주 드물게 고고대 문자만 4바이트로 사용된다
+아주 드물게 고대 문자만 4바이트로 사용된다
 */
+
+/* Escape Sequence
+표기하기 애매한 애들을 표현
+\t = ascii9 = tab
+\n = ascii10 = linefeed (한 줄 아래로)
+\r = ascii13 = carriagereturn (커서 <<)
+*/
+
+/* 문자열을 만드는 방법
+문자들이 열을 지어서 모여있는 것
+정수 (1~8바이트) 고정 길이로 끝은 null(0)으로 끝난다
+*/
+
+char str1[] = {'g', 'r', 'e', 'e', 't', '\0'};
+char str2[] = "greet";
+wchar_t str3[] = L"greet";
+
 int main() {
     cout << ch << endl;
+
+    cout << str1 << endl;
+    cout << str2 << endl;
+    cout << str3 << endl;
 }
