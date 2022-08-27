@@ -10,6 +10,11 @@ bool isDifferent;
 bool isGreater;
 bool isSmaller;
 
+// 논리 연산을 위한 변수
+int hp = 100;
+bool actor;
+bool isInvincible;
+
 int main() {
     
     // 대입연산
@@ -55,7 +60,19 @@ int main() {
 
 #pragma region 논리연산 
 
+    /* 언제 필요한가?
+    조건에 대한 논리적 사고가 필요할 때 전반적으로 사용
+    ex) 로그인할 때 회원의 정보가 일치할때 
+    */
 
+    // ! not 
+    actor = !isSame;
+
+    // && and 
+    actor = (hp < 0 && isInvincible == false);
+    
+    // || or
+    actor = (hp > 0 || isInvincible == true);
 
 #pragma endregion
 }
