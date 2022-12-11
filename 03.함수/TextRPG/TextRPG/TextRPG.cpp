@@ -35,6 +35,9 @@ void EnterField();
 // 필드에서 랜덤 몬스터를 생성할 때,
 void CreateRandomMonster();
 
+// 몬스터와 영혼의 맞다이를 할때,
+void EnterBattle();
+
 int main() {
     
     srand(time(0));
@@ -119,7 +122,19 @@ void EnterField() {
         cout << "[PLAYER] HP : " << hp << " / ATT : " << attact << " / DEF : " << defence << endl;
 
         CreateRandomMonster();
-        break;
+        
+        cout << "---------------------------" << endl;
+        cout << "[1] 전투 [2] 도주" << endl;
+        cout << "> " << endl;
+
+        int input;
+        cin >> input;
+
+        if (input == 1) { 
+            EnterBattle();
+            if (hp == 0) return;
+        }
+        else return;
     }
 
 }
@@ -150,4 +165,37 @@ void CreateRandomMonster() {
         break;
     }
 
+}
+
+void EnterBattle() {
+    while (true) {
+        int damage = attact - monsterDefence;
+        if (damage < 0) damage = 0;
+
+        monsterHp -= damage;
+        if (monsterHp < 0) monsterHp = 0;
+
+        cout << "몬스터 남은 체력 : " << monsterHp << endl;
+
+        // 몬스터의 체력이 0이 되어 처치되었다면
+        if (monsterHp == 0) {
+            cout << "몬스터를 처치했습니다!" << endl;
+            return;
+        }
+
+        // 몬스터의 체력이 0이 되지 않았다면
+        damage = monsterAttact - defence;
+        if (damage < 0) damage = 0;
+
+        // 몬스터의 반격
+        hp -= damage;
+        if (hp < 0) hp = 0;
+
+        cout << "플레이어 남은 체력 : " << hp << endl;
+
+        if (hp == 0) {
+            cout << "당신은 사망했습니다..GAME OVER" << endl;
+            return;
+        }
+    }
 }
