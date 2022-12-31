@@ -15,6 +15,8 @@ StatInfo CreatePlayer();
 // pointer를 배운 후의 사용한 함수
 void CreateMonster(StatInfo* info);
 
+bool StartBattle(StatInfo* player, StatInfo* monster);
+
 
 int main() {
     EnterLobby();
@@ -59,6 +61,12 @@ void EnterLobby() {
     무엇보다 메모리 주소값에 직접넣기에 유용하다.(하지만 잘못될 경우 이만큼 위험한 것도 없다는 점이다.)
     */
     CreateMonster(&monster);
+
+    bool victory = StartBattle(&player, &monster);
+
+    if (victory) cout << "victory!" << endl;
+    else cout << "lose!" << endl;
+
 }
 
 StatInfo CreatePlayer() {
@@ -81,4 +89,29 @@ void CreateMonster(StatInfo* info) {
     info->hp = 40;
     info->atteck = 8;
     info->defence = 1;
+}
+
+bool StartBattle(StatInfo* player, StatInfo* monster) {
+    while(true) {
+        int damage = player->atteck - monster->defence;
+        if (damage < 0) damage = 0;
+
+        monster->hp -= damage;
+        if (monster->hp < 0) monster->hp = 0;
+
+        cout << "몬스터 HP : " << monster->hp << endl;
+
+        if (monster->hp = 0) return true;
+
+        damage = monster->atteck - player->defence;
+        if (damage < 0) damage = 0;
+
+        cout << "플레이어 HP : " << player->hp << endl;
+
+        player->hp -= damage;
+
+        if (player->hp < 0) player->hp = 0;
+
+        if (player->hp == 0) return false;
+    }
 }
