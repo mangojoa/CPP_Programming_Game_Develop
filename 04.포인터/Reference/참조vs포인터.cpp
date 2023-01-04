@@ -27,15 +27,17 @@ void PrintInfo(Statinfo* info) {
     cout << "DEF : " << info->defence << endl;
     cout << "------------" << endl;
 
-    /*
-    info[주소값]
+    /* 함수의 인자값에도 const를 선언할 수 있는데 이를 어디에 선언하는지에 따라
+    상수화되는 대상이 달라질 수 있다는 것을 알아두자!!
+
+    1. info[주소값]
     info = &globalInfo;
 
     const를 별 뒤에 붙인다면? => Statinfo* const info 
     info라는 바구니의 내용물(주소)을 바꿀 수 없게 된다.
     info는 주소값을 갖는 바구니 -> 이 주소값이 고정이다.
 
-    주소값[데이터]
+    2. 주소값[데이터]
     info->hp = 10000;
 
     const를 별 앞에 붙인다면? => const Statinfo* info
