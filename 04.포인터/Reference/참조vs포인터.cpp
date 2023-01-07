@@ -47,6 +47,12 @@ void PrintInfo(Statinfo* info) {
     */
 }
 
+// 특정 조건을 만족하는 몬스터를 찾는 함수
+Statinfo* FindMonster() {
+    // 포인터 주소가 null 일 경우, 크래쉬가 발생하는데 이를 어떻게 부분
+}
+
+
 void PrintInfo(Statinfo& info) {
     cout << "------------" << endl;
     cout << "HP : " << info.hp << endl;
@@ -57,6 +63,7 @@ void PrintInfo(Statinfo& info) {
 
 int main() {
     Statinfo info;
+    CreateMonster(&info);
 
     /* 포인터 vs 참조 세기의 대결
     성능 = 똑같음!
@@ -86,12 +93,26 @@ int main() {
     그렇기에 이러한 불상사(?)를 막기 위해서는 const(상수화)를 통해 방지할 수 있다. 
 
     여기서 중요한 점은 const를 어디에 선언하느냐가 중요하다.
-    */
 
+    2) 초기화 여부 
+    참조 타입은 바구니의 2번째 이름 => 별칭의 개념이라고 보면 된다.
+    참조하는 대상이 없는 경우, 사용할 수 없다
+    
+    포인터는 그냥 어떤 ~~ 주소라는 의미 
+    대상이 실존하지 않을 수도 있다.
 
-    CreateMonster(&info);
+    포인터에서 '없다'는 의미로? 알려주는 방법을 알아보자 
+    nullptr => 포인터의 주소값이 없다는 것을 의미하는 null의 개념이라고 보면 된다.
 
+    포인터의 경우, null 상태의 주소값을 사용하거나 접근하려 한다면 충돌이 발생한다.
+    그렇기에 항상 포인터의 값이 제대로 존재하는지 or 유효한 포인터를 사용하는지에 대한 여부는 항상 확인이 필요하다.
+
+    참조타입의 경우,  null이 존재하지 않을 수 있다.
+    */ 
+    Statinfo* pointer = nullptr;
+    // pointer = & info;
     PrintInfo(&info);
 
+    Statinfo& reference = info;
     PrintInfo(info);
 }
