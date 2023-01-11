@@ -257,3 +257,4 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 .vs
+.vs/CPP_Programming_Game_Develop/v17
