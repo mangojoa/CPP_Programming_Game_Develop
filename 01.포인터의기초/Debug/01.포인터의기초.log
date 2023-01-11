@@ -1,0 +1,7 @@
+﻿  포인터의기초.cpp
+C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\01.포인터의기초\포인터의기초.cpp(84,5): error C2065: '__int64_t': 선언되지 않은 식별자입니다.
+C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\01.포인터의기초\포인터의기초.cpp(84,16): error C2065: 'ptr3': 선언되지 않은 식별자입니다.
+C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\01.포인터의기초\포인터의기초.cpp(84,24): error C2065: '__int64_t': 선언되지 않은 식별자입니다.
+C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\01.포인터의기초\포인터의기초.cpp(84,34): error C2059: 구문 오류: ')'
+C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\01.포인터의기초\포인터의기초.cpp(86,27): warning C4305: '=': '__int64'에서 'int'(으)로 잘립니다.
+C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\01.포인터의기초\포인터의기초.cpp(86,13): warning C4309: '=': 상수 값이 잘립니다.

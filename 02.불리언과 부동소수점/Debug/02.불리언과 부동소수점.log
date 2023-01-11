@@ -1,0 +1,3 @@
+﻿  부동소수점.cpp
+C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\02.불리언과 부동소수점\부동소수점.cpp(13,25): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  02.불리언과 부동소수점.vcxproj -> C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\Debug\02.불리언과 부동소수점.exe

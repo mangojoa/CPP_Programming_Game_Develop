@@ -1,3 +1,0 @@
-﻿  TextRPG.cpp
-C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\03.함수\TextRPG\TextRPG\TextRPG.cpp(43,15): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  TextRPG.vcxproj -> C:\Users\greet\Unreal_Engine\CPP_Programming_Game_Develop\03.함수\TextRPG\Debug\TextRPG.exe
