@@ -258,3 +258,6 @@ UpgradeLog*.htm
 FakesAssemblies/
 .vs
 .vs/CPP_Programming_Game_Develop/v17
+.vs/CPP_Programming_Game_Develop/v17
+*.suo
+*.db
