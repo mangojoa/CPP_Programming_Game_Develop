@@ -29,6 +29,28 @@ void EnterGame(StatInfo* playerinfo);
 void CreateMonsters(StatInfo monsterInfo[], int count);
 bool EnterBattle(StatInfo* playerInfo, StatInfo* monsterInfo);
 
+
+/* int main() 함수 안에서 EnterLobby() -> PrintMessage() -> CreatePlayer() -> PrintStatInfo() -> EnterGame() 과 같이 스택프레임의 형태로 진행됨을 볼 수 있다. 
+왜 이렇게 진행하는가 ? 
+
+포인터를 마무리하면서 함수 밖으로 포인터 or 배열 or 참조 값을 보내는 것은 매우 위험하다고 했다(메모리 오염이 일어날 수 있기 때문이다.)
+
+하지만 스택프레임이 끊임없이 진행된다면 어떻게 될까? 
+
+높은 주소에서 낮은 주소로 이동할 때, 안에 낮은 주소에서는 높은 주소의 값을 제대로 읽을 수 있고 내부로 데이터를 계속해서 보내기 때문에 
+데이터의 안정성은 확실하게 보장할 수 있다는 점이 있다. (이는 매우 훌륭하고 스택 프래임을 이해하고 있어야 한다)
+
+그렇기에 
+1. 높은 주소에서 낮은 주소로 이동할 때
+2. 낮은 주소에서 높은 주소로 이동할 때 
+
+데이터가 존재하는 스택 프래임을 종료하지 않는 이상 데이터의 안정성은 보존된다는 것이다.
+
+이를 통해 TEXTRPG를 만들어 보면서 실제로 어떻게 작동하는지와 함수 인자값에 따른 포인터 참조 배열의 사용법을 익힐 수 있었다.
+
+나아가 데이터가 스택 프래임 안에서 문제없이 돌아가는 것을 보았을 때, 오늘 배운 내용을 몇 차례 리뷰를 통해 메모리 오염이 일어나지 않도록 주의해야 겠다고 생각했다.
+
+*/
 int main() {
 
 	srand((unsigned)time(nullptr));
