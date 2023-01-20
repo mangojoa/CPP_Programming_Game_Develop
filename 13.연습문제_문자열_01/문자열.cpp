@@ -75,6 +75,9 @@ int main() {
 	strcpy_s() 라는 함수도 있다 (strcpy()의 안정성이 높아진 버전의 함수라고 볼 수 있다.) */
 
 	// strcpy()
+	//strcpy(b, a);
+
+	// 문자열 복사 함수를 사용한 배열 복사
 	strCpy(b, a);
 
 
