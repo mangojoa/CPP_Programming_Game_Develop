@@ -91,7 +91,16 @@ int* strCmp(char* a, char* b) {
 }
 
 // 6. 문자열을 뒤집는 함수
+void ReverseStr(char* str) {
+	int i = strLen(str);
 
+	for (int i = 0; i< len / 2; i++) {
+		int temp = str[i];
+		str[i] = str[len - 1 - i];
+		str[len - 1 - i] = temp;
+	}
+
+}
 
 int main() {
 
@@ -163,6 +172,9 @@ int main() {
 	// 두 문자열을 비교하는 함수 strCmp(a, b);
 	int value01 = strCmp(a, b);
 	cout << value01 << endl;
+
+	// revuese String 문자뒤집기 함수 !
+	ReverseStr(char* str);
 
 	return 0;
 
