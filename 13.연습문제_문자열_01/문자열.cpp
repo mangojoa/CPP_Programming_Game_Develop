@@ -45,6 +45,11 @@ void strCpy(char* dest, char* src) {
 	*dest = '\0';
 }
 
+// 4. 문자열 덧붙이기 함수
+void strCat(char* dest, char* src) {
+
+}
+
 
 int main() {
 
@@ -79,6 +84,12 @@ int main() {
 
 	// 문자열 복사 함수를 사용한 배열 복사
 	strCpy(b, a);
+
+	char c[BUF_SIZE] = "Hello";
+	char d[BUF_SIZE] = "Hello";
+
+	// 문자열을 덧붙이는 함수 strcat(dest, src);
+	strcat(d, c);
 
 
 	return 0;
