@@ -62,7 +62,7 @@ char* strCat(char* dest, char* src) {
 	// pointer 를 이용하는 방법
 	char* ret = dest;
 
-	while(*dest != '\0') { dset++; }
+	while(*dest != '\0') { dest++; }
 
 	while (*src != '\0')
 	{
@@ -78,7 +78,7 @@ char* strCat(char* dest, char* src) {
 }
 
 // 5. 두 문자열을 비교하는 함수
-int* strCmp(char* a, char* b) {
+int strCmp(char* a, char* b) {
 	int value;
 
 	int i = 0;
@@ -92,7 +92,7 @@ int* strCmp(char* a, char* b) {
 
 // 6. 문자열을 뒤집는 함수
 void ReverseStr(char* str) {
-	int i = strLen(str);
+	int len = strLen(str);
 
 	for (int i = 0; i< len / 2; i++) {
 		int temp = str[i];
@@ -174,7 +174,7 @@ int main() {
 	cout << value01 << endl;
 
 	// revuese String 문자뒤집기 함수 !
-	ReverseStr(char* str);
+	ReverseStr(b);
 
 	return 0;
 
