@@ -18,72 +18,94 @@ void PrintBoard() {
 	}
 }
 
-void printXYway(int x, int y) {
-	cout << "-----------------------" << endl;
-	cout << "Y_way : " << y << " | " << "X_way : " << x << endl; 
+enum DIR {
+	RIGHT = 0,
+	DOWN = 1,
+	LEFT = 2,
+	UP = 3
+};
+
+bool CanGo(int y, int x) {
+
+	if (y < 0 || y >= N) return false;
+	if (x < 0 || x >= N) return false;
+	if (board[y][x] != 0) return false;
+
+	return true;
 }
 
 // Board 값 설정
-void setBoard(int N) {
-	int number = N;
-	cout << "insert INT : " << number << endl;
+void setBoard() {
 
-	// board에 넣을 값 (++로 진행)
-	int count = 0;
+	int dir = RIGHT;
+
+	// board에 넣을 값
+	int count = 1;
 
 	// x, y 축에 대한 변수값
-	int x_way = 0; // x 축 기준
-	int y_way = 0; // y 축 기준
+	int y_way = 0;
+	int x_way = 0;
 
-	printXYway(x_way, y_way);
+	while (true) {
+		board[y_way][x_way] = count;
 
-	for (int x = x_way; x < number; x++) {
-		board[y_way][x] = ++count;
-		if (x == (number-1)) { 
-			x_way = x;
-			y_way++;
-		}
-	}
+		if (count == N * N) break;
 
-	printXYway(x_way, y_way);
+		int nextY;
+		int nextX;
 
-	for (int y = y_way; y < number; y++) {
-		board[y][x_way] = ++count;
-		if (y == (number-1)) {
-			x_way--;
-			y_way = y;
-		}
-	}
-
-	printXYway(x_way, y_way);
-	
-	for (int x = (x_way+1); x--;) {
-		board[y_way][x] = ++count;
-		if (x == (number-number)) {
-			x_way -= x_way; 
-			y_way--;
+		switch (dir)
+		{
+		case RIGHT:
+			nextY = y_way;
+			nextX = x_way + 1;
+			break;
+		case DOWN:
+			nextY = y_way + 1;
+			nextX = x_way;
+			break;
+		case LEFT:
+			nextY = y_way;
+			nextX = x_way - 1;
+			break;
+		case UP:
+			nextY = y_way - 1;
+			nextX = x_way;
 			break;
 		}
-	}
+		
+		if (CanGo(nextY, nextX)) {
+			y_way = nextY;
+			x_way = nextX;
+			count++;
+		} else {
+			switch (dir) {
+			case RIGHT: 
+				dir = DOWN;
+				break;
+			case DOWN:
+				dir = LEFT;
+				break;
+			case LEFT:
+				dir = UP;
+				break;
+			case UP:
+				dir = RIGHT;
+				break;
+			}
 
-	printXYway(x_way, y_way);
-
-	for (int y = (y_way+1); y--;) {
-		board[y][x_way] = ++count;
-		if (y == number - (number -1)) {
-			x_way = y;
-			y_way = --y;
 		}
+
+
 	}
 
-	printXYway(x_way, y_way);
 }
 
 int main() {
 
 	cin >> N;
 
-	setBoard(N);
+	setBoard();
 
 	PrintBoard();
 
