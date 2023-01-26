@@ -46,15 +46,20 @@ void setBoard() {
 	int y_way = 0;
 	int x_way = 0;
 
+	// 2. 코드의 가독성을 높이기 위해 x, y축에 해당하는 좌표값의 이동을 정의한 배열을 선언하자.
+	int dy[] = { 0, 1, 0, -1 };
+	int dx[] = { 1, 0, -1, 0 };
+
 	while (true) {
 		board[y_way][x_way] = count;
 
 		if (count == N * N) break;
 
-		int nextY;
-		int nextX;
+		// 3. 좌표값을 설정한 배열을 적용하자.
+		int nextY = y_way + dy[dir];
+		int nextX = x_way + dx[dir];
 
-		switch (dir)
+		/*switch (dir) 1. 코드의 가독성이 떨어지며 반복되는 부분이 많기에 이를 줄여보자!
 		{
 		case RIGHT:
 			nextY = y_way;
@@ -72,14 +77,19 @@ void setBoard() {
 			nextY = y_way - 1;
 			nextX = x_way;
 			break;
-		}
+		}*/
 		
 		if (CanGo(nextY, nextX)) {
 			y_way = nextY;
 			x_way = nextX;
 			count++;
 		} else {
-			switch (dir) {
+
+			// 아래의 switch문을 살펴보면 enum을 돌고 있다는 것을 알 수 있는데 
+			// 다음과 같은 방법으로 이를 간략화 할 수 있으며 코드를 작성하는데 있어 에러도 줄 일 수 있다.
+			dir = (dir + 1) % 4;
+
+			/*switch (dir) { 4. 이 switch 문도 줄여보자.
 			case RIGHT: 
 				dir = DOWN;
 				break;
@@ -92,7 +102,7 @@ void setBoard() {
 			case UP:
 				dir = RIGHT;
 				break;
-			}
+			}*/
 
 		}
 
