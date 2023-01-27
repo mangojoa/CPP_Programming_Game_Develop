@@ -1,4 +1,5 @@
 #pragma once // 중복으로 선언한 부분을 감안해주는 부분이라고 보면 된다.
+// 이는 헤더파일에 기본적으로 생성이 된다.
 
 struct StatInfo {
 	int hp;
