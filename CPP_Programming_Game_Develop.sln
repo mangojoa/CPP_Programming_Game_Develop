@@ -65,6 +65,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14.달팽이", "14.달팽�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "15.파일분할관리", "15.파일분할관리\15.파일분할관리.vcxproj", "{83857ECE-F93E-4186-AD8E-FFE318303B24}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05.객체지향", "05.객체지향", "{4AAADF35-0127-4FDE-9A68-A1367CEF8833}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01.객체지향의시작", "01.객체지향의시작\01.객체지향의시작.vcxproj", "{A770F712-D33D-4516-87C5-67D3B3FE7458}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -289,6 +293,14 @@ Global
 		{83857ECE-F93E-4186-AD8E-FFE318303B24}.Release|x64.Build.0 = Release|x64
 		{83857ECE-F93E-4186-AD8E-FFE318303B24}.Release|x86.ActiveCfg = Release|Win32
 		{83857ECE-F93E-4186-AD8E-FFE318303B24}.Release|x86.Build.0 = Release|Win32
+		{A770F712-D33D-4516-87C5-67D3B3FE7458}.Debug|x64.ActiveCfg = Debug|x64
+		{A770F712-D33D-4516-87C5-67D3B3FE7458}.Debug|x64.Build.0 = Debug|x64
+		{A770F712-D33D-4516-87C5-67D3B3FE7458}.Debug|x86.ActiveCfg = Debug|Win32
+		{A770F712-D33D-4516-87C5-67D3B3FE7458}.Debug|x86.Build.0 = Debug|Win32
+		{A770F712-D33D-4516-87C5-67D3B3FE7458}.Release|x64.ActiveCfg = Release|x64
+		{A770F712-D33D-4516-87C5-67D3B3FE7458}.Release|x64.Build.0 = Release|x64
+		{A770F712-D33D-4516-87C5-67D3B3FE7458}.Release|x86.ActiveCfg = Release|Win32
+		{A770F712-D33D-4516-87C5-67D3B3FE7458}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -321,6 +333,7 @@ Global
 		{560B39E6-A18E-4421-B1CE-AF053497E4E7} = {DD1A98FF-1F28-49FB-BF1F-2D03733164C5}
 		{D9A1A470-4501-4559-99ED-CEAD7C320B26} = {DD1A98FF-1F28-49FB-BF1F-2D03733164C5}
 		{83857ECE-F93E-4186-AD8E-FFE318303B24} = {DD1A98FF-1F28-49FB-BF1F-2D03733164C5}
+		{A770F712-D33D-4516-87C5-67D3B3FE7458} = {4AAADF35-0127-4FDE-9A68-A1367CEF8833}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2958EFD3-A4B0-4B98-B941-E99769E29CCF}
