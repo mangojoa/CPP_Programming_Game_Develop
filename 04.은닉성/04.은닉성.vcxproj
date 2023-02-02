@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{bcc4eefa-b2cd-413c-bb73-c75067860aa5}</ProjectGuid>
-    <RootNamespace>My03상속성</RootNamespace>
+    <ProjectGuid>{75953f66-342e-4817-accb-d81382a22fb4}</ProjectGuid>
+    <RootNamespace>My04은닉성</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="상속성.cpp" />
+    <ClCompile Include="은닉성.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

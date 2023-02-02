@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="상속성.cpp">
+    <ClCompile Include="은닉성.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
