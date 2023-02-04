@@ -73,6 +73,26 @@ MoveAristocrat(&player); 플레이어는 귀족인가? -> false
 int main() {
 	Knight k;
 	/* 바로 이 경우가 하위 클래스의 인자값을 통해서 상위 클래스의 인자값을 받는 함수를 실행하는 부분이다.
+	하지만 이를 실행하게 된다면 어떤 함수가 실행이 되는 걸까?
+	
+	void Move() { cout << "Move Player!!" << endl; }
+	void Move() { cout << "Move Knight!!" << endl; }
+	해당 부분 중 하나는 실행되지만 어떤 부분이 실행되어도 말은 될 수 있다.
+	그러나 우리가 원하는 부분이 void Move() { cout << "Move Knight!!" << endl; } 라면 이야기는 달라진다.
+	
+	이는 왜 그런것인가?
+	바인딩(Binding) 때문이다.
+	정적 바인딩 : 컴파일 시점에 결정
+	동적 바인딩 : 실행 시점에 결정
+
+	1. 일반 함수는 정적바인딩을 사용한다.
+	-> 컴파일 시점에서 MovePlayer(Player* player);라는 함수는 인자값이 뭐인지 알 수 없다.
+	MovePlayer(&k); 으로 Knight의 객체를 넘겨주었음에도 불구하고 이는 Knight->Move(); 함수를 실행할 수 없다.
+
+	컴파일을 진행하면서 MovePlayer(Player* player);라는 함수는 이미 Player* player로 묶여있기 때문에 
+	어떤 값을 넣더라도 이는 하위 객체에 재정의된 함수를 사용할 수 없다.
+
+	2. 그럼 동적 바인딩을 사용한다면 달라지는가? (virtual function)
 	*/
 	MovePlayer(&k);
 
