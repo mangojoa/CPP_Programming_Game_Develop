@@ -13,18 +13,41 @@ using namespace std;
 
 class Player {
 public:
+	Player() {
+		_hp = 100;
+	}
 	void Move() { cout << "Move Player!!" << endl; }
 
-	// 가상함수 사용하기
-	virtual void VMove() { cout << "Move Player!!" << endl; }
+	// 가상함수 사용하기 type 앞에 virtual를 붙이면 된다.
+	virtual void VMove() { cout << "VMove Player!!" << endl; }
+	virtual void VDie() { cout << "VDie Player!!" << endl; }
+
+	// 순수 가상 함수 => 구현은 없고 인터페이스만 전달하는 용도로 사용하고 싶을 경우
+	// 추상 클래스 = 순수 가상 함수 라는 개념인데 이는 구현부가 존재하지 않으므로
+	// 직접적으로 객체를 만들 수 없게 된다.
+	// 하위로 상속받은 클래스가 직접 구현부를 작성해 주어야 한다. (그렇지 않을 경우 Error가 출력된다.)
+	virtual void VAttack() = 0;
+
+	
 public: 
 	int _hp;
 };
 
 class Knight : public Player {
 public:
+
+	Knight() {
+		_stamina = 0;
+	}
 	void Move() { cout << "Move Knight!!" << endl; }
-	virtual void VMove() { cout << "Move Player!!" << endl; }
+
+	// 가상함수는 재정의를 하더라도 가상함수로 남아있는다. virtual 필수
+	virtual void VMove() { cout << "VMove Knight!!" << endl; }
+	virtual void VDie() { cout << "VDie Knight!!" << endl; }
+
+	// 순수 가상 함수에 대한 구현부가 이렇게 작성되어야 한다.
+	virtual void VAttack() { cout << "VAttack Knight!!" << endl; }
+
 public:
 	int _stamina;
 };
@@ -37,7 +60,9 @@ public:
 };
 
 void MovePlayer(Player* player) {
-	player->Move();
+	player->VMove();
+	player->VDie();
+	player->VAttack();
 }
 
 /* 이전까지 각 객체마다 함수를 따로 정의하고 사용했었다.
@@ -71,7 +96,7 @@ MoveAristocrat(&player); 플레이어는 귀족인가? -> false
 (이게 바로 객체지향의 장점이다!) */
 
 int main() {
-	Knight k;
+	
 	/* 바로 이 경우가 하위 클래스의 인자값을 통해서 상위 클래스의 인자값을 받는 함수를 실행하는 부분이다.
 	하지만 이를 실행하게 된다면 어떤 함수가 실행이 되는 걸까?
 	
@@ -93,7 +118,24 @@ int main() {
 	어떤 값을 넣더라도 이는 하위 객체에 재정의된 함수를 사용할 수 없다.
 
 	2. 그럼 동적 바인딩을 사용한다면 달라지는가? (virtual function)
+	실제 객체가 어떤 타입인지 어떻게 알고 알아서 가상함수를 호출해준걸까?
+	- 가상함수 테이블 (vftable)
+	.vftable[] 4바이트(32) 8바이트(64)
+
+	[VMove] 의 메모리 안에 인자값에 해당하는 주소값을 담고 이동하기에 가능한 것이다.
+	즉, 함수의 인자값 앞에 내가 어떤 함수를 호출해야 하는지에 대한 정보를 담고 실행한다는 것이다. 
+	
+	그렇다면 이러한 정보를 주는 동작은 어디에서 이루어지는 것인가?
+	-> 이는 생성자의 선처리 단계에서 진행된다.
+
+	우선적으로 kngiht는 player 의 생성자를 거치게 되는데 
+	player의 생성자 선처리 부분에서 vftable에 자기 자신의 주소값을 넣고 시작한다. 
+
+	하지만 이후 생성자가 한번 더 진행 된다면
+	dword ptr [eax], offset Knight::'vftable' (0984621h) 새롭게 생성하는 생성자의 정보를 vftable를 담고 진행한다.
+
 	*/
+	Knight k;
 	MovePlayer(&k);
 
 }
