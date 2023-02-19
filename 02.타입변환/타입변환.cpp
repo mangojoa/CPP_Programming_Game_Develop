@@ -11,12 +11,26 @@ public:
 
 class Dog {
 public: 
+	Dog() {
+
+	}
+	// 타입 변환 생성자
 	Dog(const Knight& knight) {
 		_age = knight._hp;
 	}
+	// 타입 변환 연산자
+	auto operator Knigth()
+	{
+		return (Knight)(*this);
+	}
 public:
 	int _age = 1;
-	int cuteness = 2;
+	int _cuteness = 2;
+};
+
+class BullDog : public Dog {
+public:
+	bool _french; // 프렌치 불독인지에 대한 여부 판별
 };
 
 int main() {
@@ -93,6 +107,42 @@ int main() {
 	{
 		Knight knight;
 		Dog dog = (Dog)knight;
+		Knight knight2 = dog;
+	}
+
+	/* [2] 연관없는 클래스 사이의 참조 타입 변환 
+	참조타입 값으로 통과는 된다는 것이 특징이다. 어셈블리 언어적으로 본다면 이는 문법적으로 문제가 없기 때문이다. */
+	{
+		Knight knight;
+		Dog& dog = (Dog&)knight;
+		dog._cuteness = 12;
+	}
+	
+	/*  ---------- 상속 관계에 있는 클래스 사이의 변환 ----------
+	[1] 상속 관계 클래스의 '값 타입' 변환 
+	상위 클래스에서 하위 클래스로 진행하는 값 타입 변환은 불가능하다.(애초에 안되는 것이다.)
+
+	하지만 하위 클래스에서 상위 클래스로 진행하는 값 타입 변환은 가능하다.
+	단, 타입 변환 생성자/연산자가 선언되어 있다면 불가능 하기에 만일을 대비해서 기본 생성자를 꼭 생성해두자. */
+	{
+		// Dog dog;
+		// BullDog bulldog = dog;
+
+		BullDog  bulldog;
+		Dog dog = bulldog;
+	}
+
+	/* [2] 상속 관계 클래스의 참조 타입 변환
+	상위 클래스에서 하위 클래스로 진행하는 값 타입 변환은 불가능하다. (암시적으로 안된다는 것이다.)
+	하지만 명시적으로 변환을 하게 된다면 가능한 일이다.
+
+	하위 클래스에서 상위 클래스로 진행하는 값 타입 변환은 가능하다. */
+	{
+		// Dog dog;
+		// BullDog& bulldog = (BullDog&)dog;
+
+		BullDog  bulldog;
+		Dog& dog = bulldog;
 	}
 
 	return 0;
