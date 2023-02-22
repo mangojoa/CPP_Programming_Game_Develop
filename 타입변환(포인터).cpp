@@ -11,6 +11,9 @@ public:
     Item() {
         cout << "Item()" << endl;
     }
+    Item(int itemType) : _itemType(itemType) {
+        cout << "Item(int itemType)" << endl;
+    }
     Item(const Item& item) {
         cout << "Item(const Item& item)" << endl;
     }   
@@ -22,6 +25,39 @@ public:
     int _itemDbid = 0;
 
     char _dummy[4096] = {}; // 이런 저런 비대한 정보들
+};
+
+enum ItemType {
+    IT_WEAPON = 1,
+    IT_ARMOR = 2
+};
+
+class Weapon : public Item {
+public:
+    Weapon() : Item(IT_WEAPON)
+    {
+        cout << "Weapon()" << endl;
+    }
+    ~Weapon() 
+    {
+        cout << "~Weapon()" << endl;
+    }
+public:
+    int _damage = 0;
+};
+
+class Armor : public Item {
+public:
+    Armor() : Item(IT_ARMOR)
+    {
+        cout << "Armor()" << endl;
+    }
+    ~Armor() 
+    {
+        cout << "~Armor()" << endl;
+    }
+public:
+    int defence = 0;
 };
 
 void TestItem(Item item) {
@@ -61,10 +97,56 @@ int main() {
         물론 이를 초기에 막을 수 있는 delete knight; 를 통해서 에러팝업을 띄우게 하는 방법도 있지만 
         매번 통하는 것은 아니기에 처음부터 영역침범이 일어나지 않는지 확인이 필요하다.
         */
+    }
 
+    // 자식 -> 부모 변환 테스트
+    {
+        Weapon* weapon = new Weapon();
         
-        
+        // Weapon은 Item 인가? -> 당연히 성립이 된다.
+        // 애초에 이는 상속 관계이기 때문에 가능하다.
 
+        // 게다가 암시적으로 선언했음에도 불구하고 컴파일러가 안전하다고 입증까지 해주고 있다.
+        Item* item = weapon;
+
+        delete weapon;
+    }
+
+    // 부모 -> 자식 변환 테스트
+    {
+        Item* item = new Item();
+
+        // 우선적으로 item이 weapon인가? 그것은 맞을 수도 아닐 수도 있기 때문에 
+        // 컴파일러는 자동적으로 Error를 출력하고 있다.
+        Weapon* weapon = (Weapon*)item; // 하지만 이를 억지로 캐스팅하게 된다면? 가능하다
+
+        weapon->_damage = 10;
+        // 하지만 업캐스팅을 진행하게 된다면 그 범위를 초과해서 메모리를 건드리기 때문에 
+        // 연관성이 없는 클래스 사이의 포인터 변환 테스트와 같은 결과를 내게 된다.
+
+        delete item;
+    }
+
+    // 명시적으로 타입 변환할 때는 항상 조심해야한다!
+    // 암시적으로 될 때는 안전한가?
+    // 평생 명시적으로 타입 변환(캐스팅)은 안하면 되는거 아닌가?
+
+    // 경우에 따라 이는 아닐 수 있다.
+    Item* inventory[20] = {};
+
+    srand((unsigned int)time(nullptr));
+
+    for (int x = 0; x < 20; x++) {
+        int randValue = rand() % 2;
+
+        switch (randValue) {
+            case 0: 
+            inventory[x] = new Weapon();
+            break;
+            case 1: 
+            inventory[x] = new Armor();
+            break;
+        }
 
     }
 
