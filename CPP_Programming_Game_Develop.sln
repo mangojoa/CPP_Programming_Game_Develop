@@ -91,6 +91,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02.타입변환", "02.타�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03.타입변환(포인터)", "03.타입변환(포인터)\03.타입변환(포인터).vcxproj", "{74FBABFB-A5C3-4E8A-B1BA-38420DC3C87A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04.복사의 종류", "04.복사의 종류\04.복사의 종류.vcxproj", "{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -403,6 +405,14 @@ Global
 		{74FBABFB-A5C3-4E8A-B1BA-38420DC3C87A}.Release|x64.Build.0 = Release|x64
 		{74FBABFB-A5C3-4E8A-B1BA-38420DC3C87A}.Release|x86.ActiveCfg = Release|Win32
 		{74FBABFB-A5C3-4E8A-B1BA-38420DC3C87A}.Release|x86.Build.0 = Release|Win32
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}.Debug|x64.ActiveCfg = Debug|x64
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}.Debug|x64.Build.0 = Debug|x64
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}.Debug|x86.ActiveCfg = Debug|Win32
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}.Debug|x86.Build.0 = Debug|Win32
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}.Release|x64.ActiveCfg = Release|x64
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}.Release|x64.Build.0 = Release|x64
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}.Release|x86.ActiveCfg = Release|Win32
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -446,6 +456,7 @@ Global
 		{0A736350-E178-4324-8BC3-CEE2E6D4E3E1} = {0AE901ED-E0D2-466A-96BE-837981F50783}
 		{6B641906-22B1-49D9-BB80-676FD132FEEA} = {0AE901ED-E0D2-466A-96BE-837981F50783}
 		{74FBABFB-A5C3-4E8A-B1BA-38420DC3C87A} = {0AE901ED-E0D2-466A-96BE-837981F50783}
+		{8E6A4237-6668-456B-8EA5-FEBBB3F1620A} = {0AE901ED-E0D2-466A-96BE-837981F50783}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2958EFD3-A4B0-4B98-B941-E99769E29CCF}
