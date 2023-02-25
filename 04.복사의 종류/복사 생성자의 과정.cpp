@@ -13,6 +13,12 @@ public:
     ~Pet() {
         cout << "~Pet()" << endl;
     }
+
+    // 복사 대입 연산자 과정을 위한
+    Pet& operator=(const Pet& pet) {
+        cout << "Pet& operator=(const Pet& pet)" << endl;
+        return *this;
+    }
 };
 
 // Knight의 부모 클래스 설정을 위한 Player 클래스 생성
@@ -54,10 +60,16 @@ public:
         _hp = knight._hp;
     }
 
-    // Knight& operator=(const Knight& knight) {
-    //     _hp = knight._hp;
-    //     return *this;
-    // }
+    Knight& operator=(const Knight& knight) {
+
+        cout << "Knight& operator=(cont Knight& knight)" << endl;
+
+        Player::operator=(knight);
+        _pet = knight._pet;
+
+        _hp = knight._hp;
+        return *this;
+    }
 
 
 public:
@@ -113,6 +125,50 @@ int main() {
 
     Knight knight3;
     knight3 = knight;
+    
+    /* 이에 대한 복사 대입 연산자를 실행하면
+    - 암시적 복사 대입 연산자 Steps
+    1. 부모 클래스의 복사 대입 연산자 호출
+    2. 맴버 클래스의 복사 대입 연산자 호출
+    
+    operator=(const Player&)
+    operator=(const Pet&) 으로 실행되는 결과를 볼 수 있다. 
+    --------------------------------
+    하지만 여기에 Knight 클래스에서 복사 대입 연산자(깊은 복사)를 생성한다면 이야기가 달라진다.
+
+    [Knight 클래스에 작성한 복사 대입 연산자]
+    Knight& operator=(const Knight& knight) {
+        cout << "Knight& operator=(cont Knight& knight)" << endl;
+        _hp = knight._hp;
+        return *this;
+    }
+    위와 같은 코드를 작성했다면 한 가지 문제가 발생하게 된다.
+    [깊은 복사] 부분을 진행하지 않은 부분은 정상적으로 복사가 진행되지 않는다... 
+
+    - 명시적 복사 대입 연산자 Steps
+    1. 알아서 해주는거 없음 .... 
+
+    [수정한 Knight 클래스에 작성한 복사 대입 연산자]
+    Knight& operator=(const Knight& knight) {
+
+        cout << "Knight& operator=(cont Knight& knight)" << endl;
+
+        [누락된 복사 영역을 추가로 작성해주어야 한다.]
+        Player::operator=(knight); 
+        _pet = knight._pet;
+
+        _hp = knight._hp;
+        return *this;
+    } 
+    
+    왜 이렇게까지 복잡하게 만들었는가 .... 어렵다 .... 
+    객체를 '복사'한다는 것은 두 객체의 값들을 일치시키려는 것
+    따라서 기본적으로 얕은 복사 방식으로 동작
+
+    명시적 복사 -> [모든 책임]을 프로그래머한테 취임하겠다는 의미이다.
+
+    */
+
 
     /* [ 얕은 복사 Shallow Copy ]
     맴버 데이터를 비트열 단위로 '똑같이' 복사 (메모리 영역 값을 그대로 복사)
@@ -142,7 +198,15 @@ int main() {
     1. 부모 클래스의 기본 생성자 호출
     2. 맴버 클래스의 기본 생성자 호출
 
-    */
+
+    - 암시적 복사 대입 연산자 Steps
+    1. 부모 클래스의 복사 대입 연산자 호출
+    2. 맴버 클래스의 복사 대입 연산자 호출
+    위의 두개에 해당하지 않을 경우,
+    3. 맴버가 기본 타입일 경우 메모리 복사 (얕은 복사)
+
+    - 명시적 복사 대입 연산자 Steps
+    1. 알아서 해주는거 없음 .... */
 
     return 0;
 
