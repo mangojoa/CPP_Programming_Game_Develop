@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8e6a4237-6668-456b-8ea5-febbb3f1620a}</ProjectGuid>
-    <RootNamespace>My04복사의종류</RootNamespace>
+    <ProjectGuid>{0adf7d5a-6156-4aed-84cd-750a9e13ddd4}</ProjectGuid>
+    <RootNamespace>My05캐스팅4종</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,8 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="복사 생성자의 과정.cpp" />
-    <ClCompile Include="복사의 종류.cpp" />
+    <ClCompile Include="캐스팅 4종.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
