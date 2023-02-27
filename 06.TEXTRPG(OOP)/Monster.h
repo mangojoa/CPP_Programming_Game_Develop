@@ -17,6 +17,8 @@ public:
     virtual ~Monster() {
 
     }
+
+    virtual void PrintInfo();
 protected:
     int _monsterType;
 };

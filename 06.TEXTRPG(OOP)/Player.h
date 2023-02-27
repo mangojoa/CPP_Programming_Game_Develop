@@ -26,6 +26,8 @@ public:
     virtual ~Player() {
 
     }
+    
+    virtual void PrintInfo();
 protected:
     int _playerType;  
 };

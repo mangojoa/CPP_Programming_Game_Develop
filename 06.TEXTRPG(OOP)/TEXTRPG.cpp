@@ -3,6 +3,8 @@
 using namespace std;
 
 int main() {
+    srand((unsigned int)time(nullptr));
+
     Game game;
     game.Init(); // 게임을 시작하게 되는 함수
 

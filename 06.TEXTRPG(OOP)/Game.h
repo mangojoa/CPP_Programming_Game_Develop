@@ -12,6 +12,7 @@ Game이 Player를 가졌는가? -> 어느정도 말이 된다.
 그럼 관리하는 부분을 어디에 생성해야 할까?
 -> private: 안에 생성해야 한다. */
 class Player;
+class Field;
 
 class Game
 {
@@ -36,6 +37,7 @@ private:
     생성되는데 맴버 클래스보다 부하가 현저히 적게 일어난다. 
     의존성이 맴버 클래스에 비해 매우 낮다. */
     Player* _player;
+    Field* _field;
     /* 포인터로 생성을 하게 된다면 이는 의존성이 매우 낮기에 
     굳이 #include를 하지 않아도 된다.
     

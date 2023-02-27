@@ -26,6 +26,11 @@ public:
 
     }
 
+    virtual void PrintInfo() = 0;
+
+    void onAttacked(Creature* attacker);
+    bool isDead() { return _hp <= 0; }
+
 /* 이 변수에 직접적으로 접근하는 것은 매우 위험하다.
 그렇기에 객체지향적 프로그래밍에 준수하여
 Get/Set 문법을 통해 만들어보도록 하자. */
