@@ -34,6 +34,7 @@ protected:
 /* 아직 클래스마다 양이 방대하지 않기 때문에
 같이 선언해도 되지만 양이 방대해지면 .h .cpp를 따로 생성하는게 맞다. */
 class Knight : public Player {
+public:
     /* 타입변환 생성자를 통해 생성할 것이기에 이를 바로 넣어주는 생성자를 만들어야한다. */
     Knight() : Player(PT_Knight) {
         _hp = 150;
@@ -43,6 +44,7 @@ class Knight : public Player {
 };
 
 class Archer : public Player {
+public:
     Archer() : Player(PT_Archer) {
         _hp = 80;
         _attack = 15;
@@ -51,6 +53,7 @@ class Archer : public Player {
 };
 
 class Mage : public Player {
+public:
     Mage() : Player(PT_Mage) {
         _hp = 50;
         _attack = 25;
