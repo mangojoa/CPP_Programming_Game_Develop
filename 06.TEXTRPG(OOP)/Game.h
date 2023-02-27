@@ -16,6 +16,13 @@ class Player;
 class Game
 {
 public:
+    Game();
+    ~Game();
+
+    void Init();
+    void Update();
+
+    void CreatePlayer();
 
 private:
     /* 포함관계를 설계할때 
@@ -28,7 +35,7 @@ private:
     /* - 포인터로 생성 : 생성된 Player의 주소값을 가지고 접근하는 방법으로 
     생성되는데 맴버 클래스보다 부하가 현저히 적게 일어난다. 
     의존성이 맴버 클래스에 비해 매우 낮다. */
-    Player* player;
+    Player* _player;
     /* 포인터로 생성을 하게 된다면 이는 의존성이 매우 낮기에 
     굳이 #include를 하지 않아도 된다.
     
