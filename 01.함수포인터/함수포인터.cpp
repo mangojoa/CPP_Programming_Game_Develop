@@ -52,6 +52,22 @@ Item* FindItemByItemId(Item items[], int itemCount, int itemId) {
     return nullptr;
 }
 
+// 아래의 함수를 이제 typedef 를 통해 바꾸어보자.
+typedef bool(ITEM_SELECTOR)(Item* item);
+bool IsRareItem(Item* item) {
+    return item->_rarity >= 2;
+}
+
+/* 위에서 바꾼 ITEM_SELECTOR 를 함수에 적용시켜보자. */
+Item* FindItem(Item items[], int itemCount, ITEM_SELECTOR* selector) {
+    for (int x = 0; x < itemCount; x++) {
+        Item* item = &item[x];
+        if (selector(item))
+            return item;
+    }
+
+    return nullptr;
+}
 
 int main() {
 
@@ -100,5 +116,13 @@ int main() {
     사실은 이를 사용하지 않더라도 명시적으로 사용하는 방법을 택할 수 있다.
 
     그렇지만 이를 사용하는 이유는 관리하는 측면에서 이점을 가질 수 있다는 것이 크기에 사용하는 것이다. */
+
+    Item items[10] = {};
+    items[3]._rarity = 2;
+    Item* rareItem = FindItem(items, 10, IsRareItem);
+    /* 다양한 동작을 넘겨주고 싶을 때 사용하는 개념으로도 사용할 수 있다는 것이다. 
+    
+    단점으로는 이에 대한 반환타입과 인자값 타입이 일치해야 한다는 문제가 있다는 것이다.
+    */
 
 }
