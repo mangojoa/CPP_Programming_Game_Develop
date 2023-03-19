@@ -101,6 +101,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07.디버깅", "07.디버�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01.디버깅", "01.디버깅\01.디버깅.vcxproj", "{7859BF46-3E45-4816-8C78-F63B566033E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08.콜백함수", "08.콜백함수", "{2024D863-1DA4-44F8-9F47-FC79023D16AD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01.함수포인터", "01.함수포인터\01.함수포인터.vcxproj", "{2205A181-56E2-40A5-AD29-F85B39F105AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -445,6 +449,14 @@ Global
 		{7859BF46-3E45-4816-8C78-F63B566033E8}.Release|x64.Build.0 = Release|x64
 		{7859BF46-3E45-4816-8C78-F63B566033E8}.Release|x86.ActiveCfg = Release|Win32
 		{7859BF46-3E45-4816-8C78-F63B566033E8}.Release|x86.Build.0 = Release|Win32
+		{2205A181-56E2-40A5-AD29-F85B39F105AD}.Debug|x64.ActiveCfg = Debug|x64
+		{2205A181-56E2-40A5-AD29-F85B39F105AD}.Debug|x64.Build.0 = Debug|x64
+		{2205A181-56E2-40A5-AD29-F85B39F105AD}.Debug|x86.ActiveCfg = Debug|Win32
+		{2205A181-56E2-40A5-AD29-F85B39F105AD}.Debug|x86.Build.0 = Debug|Win32
+		{2205A181-56E2-40A5-AD29-F85B39F105AD}.Release|x64.ActiveCfg = Release|x64
+		{2205A181-56E2-40A5-AD29-F85B39F105AD}.Release|x64.Build.0 = Release|x64
+		{2205A181-56E2-40A5-AD29-F85B39F105AD}.Release|x86.ActiveCfg = Release|Win32
+		{2205A181-56E2-40A5-AD29-F85B39F105AD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -492,6 +504,7 @@ Global
 		{0ADF7D5A-6156-4AED-84CD-750A9E13DDD4} = {0AE901ED-E0D2-466A-96BE-837981F50783}
 		{5B8843EF-FBB8-4D4B-BBA3-65B9F8097C54} = {0AE901ED-E0D2-466A-96BE-837981F50783}
 		{7859BF46-3E45-4816-8C78-F63B566033E8} = {033FAC93-1133-49FF-81DE-81BAA633E837}
+		{2205A181-56E2-40A5-AD29-F85B39F105AD} = {2024D863-1DA4-44F8-9F47-FC79023D16AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2958EFD3-A4B0-4B98-B941-E99769E29CCF}
