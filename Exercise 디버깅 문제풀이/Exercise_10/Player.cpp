@@ -47,6 +47,9 @@ int Player::GetAttackDamage()
 	return damage;
 }
 
+// 에러가 발생하는 지점이다.
+// 이 부분에서는 다름아닌 지워진 대상의 포인터에 접근하여
+// _hp, _attack 을 불러오려고 하기에 문제가 된다.
 void Player::PrintInfo()
 {
 	cout << "------ PlayerInfo ------" << endl;
