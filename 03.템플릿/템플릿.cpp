@@ -1,22 +1,6 @@
 #include <iostream>
 using namespace std;
 
-void Print(int a) {
-	cout << a << endl;
-}
-
-void Print(float a) {
-	cout << a << endl;
-}
-
-void Print(double a) {
-	cout << a << endl;
-}
-
-void Print(const char* a) {
-	cout << a << endl;
-}
-
 /* C++에서 템플릿은 무엇인가.
 템플릿은 C++에서 자료형을 마음대로 가지고 놀수 있는 개념이라고 보면 된다.
 
@@ -35,8 +19,9 @@ Template 을 사용하게 되면
 위와 같이 4개의 함수를 반복해서 작성할 필요가 없어진다. */
 
 // 인자값이 하나일 때,
-template <typename T>
-T print(T a) {
+template <typename T> // 받아줄 인자를 나타내는 typename T ! -> C++ 에서는 class 라고 칭하는 경우도 있다.
+T print(T a) { // 여기에는 기존의 타입을 작성하는 것이 아닌 typename T를 작성해주는 것이다.
+	// 그럼 모든 인자값을 다 받아줄 수 있는 함수가 된다.
 	cout << a << endl;
 }
 
@@ -49,10 +34,10 @@ void println(A, B) {
 
 int main() {
 
-	Print(1);
-	Print(1.5f);
-	Print(1.9f);
-	Print('H');
+	print<int>(10.0f);
+	print(1.5f);
+	print(1.9);
+	print('H');
 	/* 함수의 시그니처, 인자값의 수, 로직까지 같은 함수를 여러 개 만든다는 것은 
 	사실상 비효율적인 일이나 다름없다. (어떻게 본다면 이는 중복이나 다름없다.)
 
