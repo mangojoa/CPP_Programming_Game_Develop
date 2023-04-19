@@ -27,6 +27,27 @@ public:
 	T _data[SIZE];
 };
 
+/* 클래스 템플릿 또한 템플릿 특수화의 개념이 존재한다.
+우선 클래스 안에서 사용되는 인자값 및 반환값이 특정 타입일때 '템플릿 특수화'를 사용한다.
+
+예를 들어 double 타입이 예외적으로 만들어지는 경우가 있다면 아래와 같이 작성되어야한다.
+template<[명시된 타입], 기존인자값> 
+
+여기서는 예시로 위와 같이 설명하였으나 이는 실전에서 다르게 나타날 가능성이 매우 많기에 값보다는 
+공통된 template<class ~~, typename ~~, ... > 등을 확인하자.
+*/
+template<int SIZE>
+class RandomBox<double, SIZE> {
+public:
+	double GetRandomData() {
+		int idx = rand() % SIZE;
+		return _data[idx];
+	}
+public:
+	double _data[SIZE];
+};
+
+
 int main() {
 	
 	srand(static_cast<unsigned int>(time(nullptr)));
@@ -59,7 +80,7 @@ int main() {
 	RandomBox<int, 20> rb2;
 
 	for (int i = 0; i < 10; i++) {
-		rb2._data[i] = i;
+		rb2._data[i] = i + 0.5;
 	}
 
 	float value2 = rb2.GetRandomData();
