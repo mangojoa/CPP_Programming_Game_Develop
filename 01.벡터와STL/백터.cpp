@@ -80,7 +80,7 @@ int main() {
 
 	// 만약 우리가 capacity에 들어갈 메모리를 유추할 수 있다면 이를 처음부터 정할 수 있다.
 	// reserve(); 를 사용하더라도 size > capacity 상태라면 capacity()는 증가한다.
-	vector<int> v3();
+	vector<int> v3;
 	v3.reserve(1000);
 	for (int i = 0; i < 1001; i++) {
 		v3.push_back(100);
