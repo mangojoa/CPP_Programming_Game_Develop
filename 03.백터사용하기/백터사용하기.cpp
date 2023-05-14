@@ -3,6 +3,62 @@
 using namespace std;
 
 template<typename T>
+class Iterator {
+public:
+	Iterator() : _ptr(nullptr) {
+
+	}
+
+	Iterator(T* ptr) : _ptr(ptr) {
+
+	}
+
+	Iterator& operator++() {
+		_ptr++;
+		return *this;
+	}
+
+	Iterator& operator++(int) {
+		Iterator temp = *this;
+		_ptr++;
+		return temp;
+	}
+
+	Iterator& operator--(int) {
+		Iterator temp = *this;
+		_ptr--;
+		return temp;
+	}
+
+	Iterator operator+(const int count) {
+		Iterator temp = *this;
+		temp._ptr += count;
+		return temp;
+	}
+
+	Iterator operator-(const int count) {
+		Iterator temp = *this;
+		temp._ptr -= count;
+		return temp;
+	}
+
+	bool operator==(const Iterator& right) {
+		return _ptr == right._ptr;
+	}
+
+	bool operator!=(const Iterator& right) {
+		return !(*this == right);
+	}
+
+	T& operator*() {
+		return *_ptr;
+	}
+
+public:
+	T* _ptr;
+};
+
+template<typename T>
 class Vector {
 public:
 
@@ -63,6 +119,12 @@ public:
 		return _data[pos];
 	}
 
+public:
+	typedef Iterator<T> iterator;
+
+	iterator begin() { return iterator(&_data[0]); }
+	iterator end() { return begin() + size(); }
+
 private:
 	T* _data;
 	int _size;
@@ -86,9 +148,9 @@ int main() {
 
 	cout << "-----------" << endl;
 
-	/*for (vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
+	for (Vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
 		cout << (*it) << endl;
-	}*/
+	}
 
 	return 0;
 }
