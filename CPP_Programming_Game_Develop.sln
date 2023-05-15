@@ -121,6 +121,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02.백터의 중간삽입�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03.백터사용하기", "03.백터사용하기\03.백터사용하기.vcxproj", "{255DF665-0DA2-4FFD-84BF-E7CC58203663}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04.리스트", "04.리스트\04.리스트.vcxproj", "{76660707-814D-4663-97E1-19BA45D74847}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -529,6 +531,14 @@ Global
 		{255DF665-0DA2-4FFD-84BF-E7CC58203663}.Release|x64.Build.0 = Release|x64
 		{255DF665-0DA2-4FFD-84BF-E7CC58203663}.Release|x86.ActiveCfg = Release|Win32
 		{255DF665-0DA2-4FFD-84BF-E7CC58203663}.Release|x86.Build.0 = Release|Win32
+		{76660707-814D-4663-97E1-19BA45D74847}.Debug|x64.ActiveCfg = Debug|x64
+		{76660707-814D-4663-97E1-19BA45D74847}.Debug|x64.Build.0 = Debug|x64
+		{76660707-814D-4663-97E1-19BA45D74847}.Debug|x86.ActiveCfg = Debug|Win32
+		{76660707-814D-4663-97E1-19BA45D74847}.Debug|x86.Build.0 = Debug|Win32
+		{76660707-814D-4663-97E1-19BA45D74847}.Release|x64.ActiveCfg = Release|x64
+		{76660707-814D-4663-97E1-19BA45D74847}.Release|x64.Build.0 = Release|x64
+		{76660707-814D-4663-97E1-19BA45D74847}.Release|x86.ActiveCfg = Release|Win32
+		{76660707-814D-4663-97E1-19BA45D74847}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -584,6 +594,7 @@ Global
 		{EA6D68E8-722A-47EA-B210-460F1E50D0AB} = {0180E5B0-AA2F-401C-8681-8BAC913C9FA1}
 		{0021D5E6-8F7E-43FC-BFA9-440D16BB73D0} = {0180E5B0-AA2F-401C-8681-8BAC913C9FA1}
 		{255DF665-0DA2-4FFD-84BF-E7CC58203663} = {0180E5B0-AA2F-401C-8681-8BAC913C9FA1}
+		{76660707-814D-4663-97E1-19BA45D74847} = {0180E5B0-AA2F-401C-8681-8BAC913C9FA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2958EFD3-A4B0-4B98-B941-E99769E29CCF}
