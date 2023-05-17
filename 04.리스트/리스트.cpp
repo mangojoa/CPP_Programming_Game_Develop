@@ -27,7 +27,19 @@ int main() {
 	int last = li.back(); // vector = end() / list = back()
 
 	list<int>::iterator itBegin = li.begin();
-	list<int>::iterator itEnd = li.end(); 
+	list<int>::iterator itEnd = li.end();
+
+	for (list<int>::iterator it = li.begin(); it != li.end(); ++it) {
+		cout << *it << endl;
+	}
+
+	li.insert(itBegin, 100); // 해당 인덱스 자리에 값을 넣는다.
+	
+	li.erase(li.begin()); // 위치한 인덱스의 값을 지운다.
+
+	li.pop_front(); // 리스트 제일 앞에 원소 삭제
+
+	li.remove(10); // !!! value와 같은 값을 가지는 element를 모두 제거
 
 	return 0;
 }
