@@ -36,8 +36,9 @@ _next 에는 *(포인터)형이므로 어떠한 주소값이 들어가는데
 
 class Node {
 public:
+	Node* _next;
+	Node* _prev;
 	int		_data;
-	Node*	_next;
 };
 
 /* 여기서 흥미로운 점이 하나 발생한다.
@@ -79,7 +80,32 @@ int main() {
 	- list의 동작 원리
 	- 중간 삽입/삭제
 	- 처음/끝 삽입/삭제
-	- 임의접근 */
+	- 임의접근 
+	
+	1. list의 중간 삽입/삭제에 대하여
+	vector와는 달리 list는 각자의 다음/이전의 주소값을 알고 있기 때문에 중간에 삽입/삭제를 진행하더라도
+
+	다음/이전의 주소값이 유효한 값이라면 이는 용이하게 진행된다는 것을 알 수 있다.
+
+	2. list의 처음/끝 삽입/삭제에 대하여
+	vector의 경우, 처음 삽입/삭제는 한 칸을 밀어내고 그 칸에 값을 집어 넣는 형식이지만
+	list는 주소값을 연결짓는 부분으로 진행되기에 복사의 단계를 거치지 않기 때문에
+	vector에 비해 이점을 가진다고 볼 수 있다.
+
+	끝 삽입/삭제의 경우, vector & list는 같은 이점을 가지고 있다.
+	하지만 작동 방식이 다르다는 것을 알아두자.
+
+	3. list의 임의접근에 대하여
+	vector의 경우, 연속된 데이터의 배열이라는 개념이 성립된 데이터 구조라는 점에서
+	vector<int> v1 = [1,2,3,4,5]; 일 때, v1[3]; 과 같이 간단하게 접근할 수 있다. 
+	(연속된 배열의 개념이기에)
+
+	하지만 list의 경우는 반대이다.
+
+	list의 경우, indexing 의 개념이 성립되지 않는데
+	이유는 연속된 데이터의 배열이라는 개념이 성립되지 않은 데이터 구조라는 점이 이유이다.
+	vector 처럼 1 다음의 데이터가 2가 아닐 수도 있다는 경우가 있다는 것이기에
+	indexing 방법이 성립되지 않는다. */
 
 	list<int> li;
 
@@ -95,6 +121,8 @@ int main() {
 
 	int first = li.front(); // vector = begin() / list = front()
 	int last = li.back(); // vector = end() / list = back()
+
+	// li[3] = 10 // 없음
 
 	list<int>::iterator itBegin = li.begin();
 	list<int>::iterator itEnd = li.end();
