@@ -167,9 +167,9 @@ int main() {
 
 	처음과 마지막에서는 _Myhead에 접근할 수 없고 오로지 노드를 정상적으로 거쳐야만 가능하다. */
 
-	list<int>::iterator itTest01 = --itBegin; // 실행시 에러
+	// list<int>::iterator itTest01 = --itBegin; // 실행시 에러
 	list<int>::iterator itTest02 = --itEnd; 
-	list<int>::iterator itTest03 = ++itEnd; // 실행시 에러
+	// list<int>::iterator itTest03 = ++itEnd; // 실행시 에러
 
 	/*------------------------------------------------------------------------------------------*/
 	
@@ -179,7 +179,7 @@ int main() {
 	
 	왜 이러한 문법들을 막아둔 것인가??? ->  잘못된 접근을 막기 위해서 처음부터 막아둔 개념이라고 볼 수 있다.
 	(vector와 사용하는 방법이 대부분 유사하다고 할 수 있지만 동작원리부터가 아예 다른 기능이기에 착각을 방지하기 위해서) */
-	list<int>::iterator itTest01 = itBegin + 10; 
+	/*list<int>::iterator itTest01 = itBegin + 10; */
 
 
 	for (list<int>::iterator it = li.begin(); it != li.end(); ++it) {
@@ -195,11 +195,31 @@ int main() {
 	li.remove(10); // !!! value와 같은 값을 가지는 element를 모두 제거
 
 	/* 위의 기능안에 있는 함수를 외운다는 것도 중요하지만
-	무엇보다 이 기능 (list)가 어떻게 동작하는지 원리를 알고있어야 한다는게 중요하다. 
-	
-	vector 와 list의 동작원리로 인해 차이점을 알게 되었다
+	무엇보다 이 기능 (list)가 어떻게 동작하는지 원리를 알고있어야 한다는게 중요하다. */
 
-	둘의 분명한 장/단점이 존재하여 이를 적재적소에 활용할 수 있는 방법을 익히는 것이 중요하다고 생각된다. */
+	/*------------------------------------------------------------------------------------------*/
+
+	/* 임의접근이 느린데 중간 삽입/삭제가 빠를 수 있는가?
+	* 50번 인덱스에 있는데이터를 삭제한다! */
+
+	// 하지만 애초에 삭제할 부분의 메모리를 들고 시작한다면 이야기는 다를 수 있다!
+	list<int> li01;
+
+	// 삭제할 위치를 기억하는 itRemember
+	list<int>::iterator itRemember;
+
+	for (int i = 0; i < 100; i++) {
+		if (i == 50) itRemember = li01.insert(li01.end(), i);
+		// insert()를 진행하게 되면 insert() 한 위치를 반환해준다는 것을 이용하여 
+		// 삭제할 위치를 미리 알고 있는 꼼수를 이용하는 것이다.
+		else li01.push_back(i); 
+	}
+
+	list<int>::iterator it = li01.begin();
+	for (int i = 0; i < 50; i++) ++it;
+	// 삭제는 빠르지 삭제할 데이터를 찾는 것은 전혀 빠른게 아니다.
+
+	li01.erase(itRemember);
 
 	return 0;
 }
