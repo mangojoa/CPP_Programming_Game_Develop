@@ -160,6 +160,28 @@ int main() {
 	int* ptrBegin = &(li.front());
 	int* ptrEnd = &(li.back());
 
+	/* _Myhead : end() 의 존재로 인해 한가지 시험을 해보자
+	--itBegin 을 통해서 _Myhead : end() 에 접근할 수 있는가? -> 접근이 안된다.
+	--itEnd 을 통해서 _Myhead : end() 에 접근할 수 있는가? -> 접근이 된다.
+	++itEnd 을 통해서 첫 번째 노드에 접근할 수 있는가? -> 접근이 안된다.
+
+	처음과 마지막에서는 _Myhead에 접근할 수 없고 오로지 노드를 정상적으로 거쳐야만 가능하다. */
+
+	list<int>::iterator itTest01 = --itBegin; // 실행시 에러
+	list<int>::iterator itTest02 = --itEnd; 
+	list<int>::iterator itTest03 = ++itEnd; // 실행시 에러
+
+	/*------------------------------------------------------------------------------------------*/
+	
+	/* vector 에서 사용하는 문법들은 list에서 막아둔 것을 알 수 있는데
+	이는 연속된 배열의 형태로 존재하는게 아닌 Node의 형태로 이루어져 있기에
+	iterator의 이동(메모리이동)이 불가능한 것이다. 
+	
+	왜 이러한 문법들을 막아둔 것인가??? ->  잘못된 접근을 막기 위해서 처음부터 막아둔 개념이라고 볼 수 있다.
+	(vector와 사용하는 방법이 대부분 유사하다고 할 수 있지만 동작원리부터가 아예 다른 기능이기에 착각을 방지하기 위해서) */
+	list<int>::iterator itTest01 = itBegin + 10; 
+
+
 	for (list<int>::iterator it = li.begin(); it != li.end(); ++it) {
 		cout << *it << endl;
 	}
