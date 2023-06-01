@@ -18,7 +18,7 @@ public:
 public:
 	Node*	_next;
 	Node*	_prev;
-	T		_date;
+	T		_data;
 };
 
 template<typename T>
@@ -154,7 +154,7 @@ public:
 
 	// insert / erase 의 기본적인 반환값에 대한 구현
 	iterator insert(iterator it, const T& value) {
-		AddNode(it._node, value);
+		Node<T>* node = AddNode(it._node, value);
 		return iterator(node);
 	}
 	
