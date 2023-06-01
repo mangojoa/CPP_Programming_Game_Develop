@@ -7,13 +7,69 @@ template<typename T>
 class Node {
 public:
 
-	Node() : _next(nullptr), _prev(nullptr), _data(T()) {}
-	Node(const T& value) : _next(nullptr), _prev(nullptr), _data(value) {}
+	Node() : _next(nullptr), _prev(nullptr), _data(T()) {
+	
+	}
+
+	Node(const T& value) : _next(nullptr), _prev(nullptr), _data(value) {
+	
+	}
 
 public:
 	Node*	_next;
 	Node*	_prev;
 	T		_date;
+};
+
+template<typename T>
+class Iterator {
+public:
+	Iterator() : _node(nullptr) {}
+
+	Iterator(Node<T>* node) : _node(node) {}
+
+	//++it
+	Iterator<T>& operator++() {
+		_node = _node->_next;
+		return *this;
+	}
+
+	//it++
+	Iterator<T>& operator++(int) {
+		Iterator<T> temp = *this;
+		_node = _node->_next;
+
+		return temp;
+	}
+
+	//--it
+	Iterator<T>& operator--() {
+		_node = _node->_prev;
+		return *this;
+	}
+
+	//it--
+	Iterator<T>& operator--(int) {
+		Iterator<T> temp = *this;
+		_node = _node->_prev;
+
+		return temp;
+	}
+
+	T& operator*() {
+		return _node->_data;
+	}
+
+	bool operator==(const Iterator& right) {
+		return _node == right._node;
+	}
+
+	bool operator!=(const Iterator& right) {
+		return _node != right._node;
+	}
+
+public:
+	Node<T>* _node;
 };
 
 // [1] <-> [2] <-> [3] <-> [header] <->
@@ -88,6 +144,24 @@ public:
 	}
 
 	int size() { return _size; }
+
+public:
+	typedef Iterator<T> iterator;
+
+	// iterator의 기본적인 기능에 대한 구현
+	iterator begin() { return iterator(_header->_next); }
+	iterator end() { return iterator(_header); }
+
+	// insert / erase 의 기본적인 반환값에 대한 구현
+	iterator insert(iterator it, const T& value) {
+		AddNode(it._node, value);
+		return iterator(node);
+	}
+	
+	iterator erase(iterator it) {
+		Node<T>* node = RemoveNode(it._node);
+		return iterator(node);
+	}
 
 public:
 	Node<T>* _header;
