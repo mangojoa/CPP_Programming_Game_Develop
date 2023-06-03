@@ -125,6 +125,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04.리스트", "04.리스�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05.리스트사용하기", "05.리스트사용하기\05.리스트사용하기.vcxproj", "{DB4C67E6-01FB-45AC-805D-35911369270F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06.deque", "06.deque\06.deque.vcxproj", "{611F949A-9055-42D2-B0C2-07AABBF4D875}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -549,6 +551,14 @@ Global
 		{DB4C67E6-01FB-45AC-805D-35911369270F}.Release|x64.Build.0 = Release|x64
 		{DB4C67E6-01FB-45AC-805D-35911369270F}.Release|x86.ActiveCfg = Release|Win32
 		{DB4C67E6-01FB-45AC-805D-35911369270F}.Release|x86.Build.0 = Release|Win32
+		{611F949A-9055-42D2-B0C2-07AABBF4D875}.Debug|x64.ActiveCfg = Debug|x64
+		{611F949A-9055-42D2-B0C2-07AABBF4D875}.Debug|x64.Build.0 = Debug|x64
+		{611F949A-9055-42D2-B0C2-07AABBF4D875}.Debug|x86.ActiveCfg = Debug|Win32
+		{611F949A-9055-42D2-B0C2-07AABBF4D875}.Debug|x86.Build.0 = Debug|Win32
+		{611F949A-9055-42D2-B0C2-07AABBF4D875}.Release|x64.ActiveCfg = Release|x64
+		{611F949A-9055-42D2-B0C2-07AABBF4D875}.Release|x64.Build.0 = Release|x64
+		{611F949A-9055-42D2-B0C2-07AABBF4D875}.Release|x86.ActiveCfg = Release|Win32
+		{611F949A-9055-42D2-B0C2-07AABBF4D875}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -606,6 +616,7 @@ Global
 		{255DF665-0DA2-4FFD-84BF-E7CC58203663} = {0180E5B0-AA2F-401C-8681-8BAC913C9FA1}
 		{76660707-814D-4663-97E1-19BA45D74847} = {0180E5B0-AA2F-401C-8681-8BAC913C9FA1}
 		{DB4C67E6-01FB-45AC-805D-35911369270F} = {0180E5B0-AA2F-401C-8681-8BAC913C9FA1}
+		{611F949A-9055-42D2-B0C2-07AABBF4D875} = {0180E5B0-AA2F-401C-8681-8BAC913C9FA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2958EFD3-A4B0-4B98-B941-E99769E29CCF}
