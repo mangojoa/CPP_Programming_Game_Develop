@@ -10,12 +10,7 @@ using namespace std;
 int main() {
 	set<int> s;
 	
-	/* set의 기능 (value = key 가 일치하는 개념으로 작동한다고 보면된다)
-	넣고
-	빼고
-	찾고
-	순회하고
-	*/
+	/* set의 기능 (value = key 가 일치하는 개념으로 작동한다고 보면된다) */
 
 	// 넣고
 	s.insert(10);
@@ -84,8 +79,35 @@ int main() {
 	/* ------------------------------------------------------------- */
 	cout << "-------------------------------------------------" << endl;
 
-	/* multiset => 기존의 set 과 다른 점은 중복치를 허용한다는 점
-	*/
+	/* multiset => 기존의 set 과 다른 점은 중복치를 허용한다는 점 */
+
+	multiset<int> ms;
+
+	// 넣고
+	ms.insert(100);
+	ms.insert(100);
+	ms.insert(100);
+	ms.insert(200);
+	ms.insert(200);
+
+	// 찾고
+	multiset<int>::iterator findIt = ms.find(100); // key = 100 에 해당하는 첫 번째 검색된 값을 가리킨다. 
+	// multimap 과 마찬가지로 여러값을 한꺼번에 추출 할 수 있는 방법으로 접근할 수 있다. 
+
+	pair<multiset<int>::iterator, multiset<int, int>::iterator> itPair2;
+	itPair2 = ms.equal_range(100);
+
+	for (multiset<int>::iterator it = itPair2.first; it != itPair2.second; ++it) {
+		cout << *it << endl;
+	}
+
+	multiset<int>::iterator itBegin2 = ms.lower_bound(1);
+	multiset<int>::iterator itEnd2 = ms.upper_bound(1);
+
+	for (multiset<int>::iterator it = itBegin2; it != itEnd2; ++it) {
+		cout << *it << endl;
+	}
+
 
 	return 0;
 }
