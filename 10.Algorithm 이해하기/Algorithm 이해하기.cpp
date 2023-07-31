@@ -168,6 +168,19 @@ int main() {
 			*it = temp;
 			cout << " | 이후 값: " << (*it) << endl;
 		}
+
+		cout << "------------------------------------------------" << endl;
+		cout << "algorithm을 이용한 간결한 부분" << endl;
+
+		struct MultiplyBy3 {
+			bool operator()(int n) {
+				n = n * 3;
+			}
+		};
+
+		// for_each(start, end, 함수 or 람다식) 으로 사용된다.
+
+		for_each(v.begin(), v.end(), MultiplyBy3());
 	}
 
 	return 0;
