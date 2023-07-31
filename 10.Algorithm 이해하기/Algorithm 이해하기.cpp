@@ -54,14 +54,24 @@ int main() {
 			if (*findIt == number) found = true;
 		}
 
-		// find(start, end, target); 형식으로 사용하면 된다. 
-		// 위의 코드와는 다르게 매우 간결한 것을 확인할 수 있다.
-		auto itFind = find(v.begin(), v.end(), number);
-
 		cout << endl;
 
 		if (found) cout << number << "를 찾았습니다!" << endl;
 		else cout << number << "를 찾지 못했습니다.." << endl;
+
+		cout << "------------------------------------------------" << endl;
+		cout << "algorithm을 이용한 간결한 부분" << endl;
+
+		// find(start, end, target); 형식으로 사용하면 된다. 
+		// 위의 코드와는 다르게 매우 간결한 것을 확인할 수 있다.
+		vector<int>::iterator itFind = find(v.begin(), v.end(), number);
+		// C++ 11 이후부터는 auto 라는 문법을 통해 더욱 간결하게 작성할 수 있다.
+		// auto itFind = find(v.begin(), v.end(), number);
+
+		if (itFind == v.end()) cout << "찾지 못했습니다..." << endl;
+		else cout << "찾았습니다!" << endl;
+
+		cout << endl;
 	}
 
 	cout << "------------------------------------------------" << endl;
