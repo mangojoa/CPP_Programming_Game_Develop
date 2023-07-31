@@ -76,7 +76,7 @@ int main() {
 
 	cout << "------------------------------------------------" << endl;
 
-	// Q1) 11로 나뉘는 숫자가 벡터안에 있는지 체크하는 기능 (bool, 첫 등장 iterator)
+	// Q2) 11로 나뉘는 숫자가 벡터안에 있는지 체크하는 기능 (bool, 첫 등장 iterator)
 	{
 		bool found = false;
 
@@ -92,11 +92,33 @@ int main() {
 		if (found) cout << "11로 나누어지는 숫자가 존재합니다!" << endl;
 		else cout << "11로 나누어지는 숫자가 존재하지 않습니다.." << endl;
 
+		cout << "------------------------------------------------" << endl;
+		cout << "algorithm을 이용한 간결한 부분" << endl;
+
+		struct CanDivideBy11 {
+			bool operator()(int n) {
+				return (n % 11) == 0;
+			}
+		};
+
+		// find_if(start, end, 함수 or 참조자); 형식으로 사용하면 된다.
+		// 사실은 어떠한 조건을 넣어야 하고 이를 만족하기 위해서는 함수 혹은 람다식을 이용한 방법을 사용한다.
+		// 하지만 여기서는 근.본을 알기 위해서 함수로 진행한다.
+		vector<int>::iterator itFind = find_if(v.begin(), v.end(), CanDivideBy11());
+
+		// 람다식을 이용한 일회성 함수를 적용시킨 코드
+		// vector<int>::iterator itFind = find_if(v.begin(), v.end(), [](int n) { return (n % 11) == 0; });
+
+		if (itFind == v.end()) cout << "찾지 못했습니다..." << endl;
+		else cout << "찾았습니다!" << endl;
+
+		cout << endl;
+
 	}
 
 	cout << "------------------------------------------------" << endl;
 
-	// Q1) 벡터안에 홀수가 몇개 있는지 체크하는 기능 (count)
+	// Q3) 벡터안에 홀수가 몇개 있는지 체크하는 기능 (count)
 	{
 		int count = 0;
 
@@ -114,7 +136,7 @@ int main() {
 
 	cout << "------------------------------------------------" << endl;
 
-	// Q1) 벡터안의 모든 숫자들에 3을 곱하는 기능
+	// Q4) 벡터안의 모든 숫자들에 3을 곱하는 기능
 	{
 		for (vector<int>::iterator it = v.begin(); it < v.end(); ++it) {
 			int temp = (*it) * 3;
