@@ -132,6 +132,25 @@ int main() {
 		cout << endl;
 
 		cout << "홀수인 수는 " << count << "개 입니다." << endl;
+
+		cout << "------------------------------------------------" << endl;
+		cout << "algorithm을 이용한 간결한 부분" << endl;
+
+		struct IsOdd {
+			bool operator()(int n) {
+				return (n % 2) == 0;
+			}
+		};
+
+		// count_if(start, end, 함수 or 람다식) 으로 사용된다.
+		// count / count_if 의 반환타입은 int 이기때문에 vector<int>::iterator 와 같은 것으로 받으면 안된다.
+		int number = count_if(v.begin(), v.end(), IsOdd());
+		// count_if를 타고 들어가서 확인하면 조건으로 넣은 함수에 맞는 조건일 경우, ++ 이 되는 로직을 확인할 수 있다.
+
+		cout << "홀수인 수는 " << number << "개 입니다." << endl;
+
+
+
 	}
 
 	cout << "------------------------------------------------" << endl;
