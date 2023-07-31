@@ -149,7 +149,12 @@ int main() {
 
 		cout << "홀수인 수는 " << number << "개 입니다." << endl;
 
-
+		// 모든 데이터가 홀수 입니까?
+		bool b1 = all_of(v.begin(), v.end(), IsOdd());
+		// 홀수인 데이터가 하나라도 있습니까?
+		bool b2 = any_of(v.begin(), v.end(), IsOdd());
+		// 모든 데이터가 홀수가 아닙니까?
+		bool b3 = none_of(v.begin(), v.end(), IsOdd());
 
 	}
 
