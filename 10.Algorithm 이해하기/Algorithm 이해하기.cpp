@@ -173,7 +173,7 @@ int main() {
 		cout << "algorithm을 이용한 간결한 부분" << endl;
 
 		struct MultiplyBy3 {
-			bool operator()(int n) {
+			void operator()(int& n) {
 				n = n * 3;
 			}
 		};
@@ -181,6 +181,77 @@ int main() {
 		// for_each(start, end, 함수 or 람다식) 으로 사용된다.
 
 		for_each(v.begin(), v.end(), MultiplyBy3());
+	}
+
+	// 홀수인 데이터를 일괄 삭제
+	// remove
+	// remove_if 이 두개의 함수는 특이하게(?) 작동한다고 한다.
+	{
+		// 홀수인 데이터를 삭제할때 이를 함부러 삭제하게 된다면 굉장히 위험한 상황이라고 배웠으며
+		// 해당 데이터를 지우고 뒤의 데이터를 앞으로 복사하는 과정을 거친다면 
+		// 이는 매우 비효율적으로 작동하게 될 것이라는 걸 앞서 배웠었다.
+
+		/*for (vector<int>::iterator it = v.begin(); it != v.end();) {
+			if ((*it % 2) != 0) it = v.erase(it);
+		}*/
+
+		v.clear();
+
+		v.push_back(1);
+		v.push_back(2);
+		v.push_back(3);
+		v.push_back(4);
+		v.push_back(5);
+
+		// std::remove(v.begin(), v.end(), 3);
+
+		struct IsOdd {
+			bool operator()(int n) {
+				return (n % 2) != 0;
+			}
+		};
+
+		// 이전 데이터의 상태
+		// 1 2 3 4 5
+
+		// 이후 데이터의 상태
+		// 2 4 3 4 5
+
+		// 뭔가 이상한 값으로 변해있다는 것을 알 수 있다. 
+
+		/* 이 코드를 분석해보자!!
+		template <class ForwardIt, class UnaryPredicate>
+		ForwardIt remove_if(ForwardIt first, ForwardIt last, UnaryPredicate p) {
+		  first = std::find_if(first, last, p); -> 우리가 찾아야하는 위치에 접근하는 코드
+		  if (first != last)
+			for (ForwardIt i = first; ++i != last;) -> 전체를 스캔하는 부분
+			  if (!p(*i)) *first++ = std::move(*i); -> 해당하는 데이터가 아닌경우, 이를 이동시키는 코드
+		  return first; -> 이 부분이 가장 중요
+
+		  return 을 왜 first로 하는가?
+
+		  이후 데이터의 상태를 보면
+		  2 4 3 4 5
+
+		  1 3 5 는 삭제의 대상 2 4 는 삭제의 대상이 아니다
+
+		  위의 코드를 보면 if (!p(*i)) *first++ = std::move(*i); 코드에서 삭제의 대상이 아닌 것을 
+		  앞으로 가져오는 코드를 볼 수 있다.
+
+		  이후 뒤의 코드는 그대로 남게 되는데 (그러면 삭제가 안된거 아닌가?)
+
+		  여기서 return 을 왜 first로 했는지 알 수 있다.
+
+		  first는 삭제의 대상이 아닌 포인터를 반환한다. 
+		  즉, 대상이 아닌 포인터 지점부터는 삭제를 진행해도 된다는 것이다.
+		  
+		}
+		*/
+
+		vector<int>::iterator it = std::remove_if(v.begin(), v.end(), IsOdd());
+		v.erase(it, v.end());
+
+		int a = 3;
 	}
 
 	return 0;
