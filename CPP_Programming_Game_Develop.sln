@@ -145,6 +145,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03.nullptr", "03.nullptr\03
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04.enum class", "04.enum class\04.enum class.vcxproj", "{56734949-4A2D-4A8A-883C-FA1922DEB5D4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05.override, final", "05.override, final\05.override, final.vcxproj", "{CA3BF003-71DE-4578-90BC-B1630E36BAAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -641,6 +643,14 @@ Global
 		{56734949-4A2D-4A8A-883C-FA1922DEB5D4}.Release|x64.Build.0 = Release|x64
 		{56734949-4A2D-4A8A-883C-FA1922DEB5D4}.Release|x86.ActiveCfg = Release|Win32
 		{56734949-4A2D-4A8A-883C-FA1922DEB5D4}.Release|x86.Build.0 = Release|Win32
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD}.Debug|x64.ActiveCfg = Debug|x64
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD}.Debug|x64.Build.0 = Debug|x64
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD}.Debug|x86.ActiveCfg = Debug|Win32
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD}.Debug|x86.Build.0 = Debug|Win32
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD}.Release|x64.ActiveCfg = Release|x64
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD}.Release|x64.Build.0 = Release|x64
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD}.Release|x86.ActiveCfg = Release|Win32
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -707,6 +717,7 @@ Global
 		{47A7FB94-8272-481F-95C6-D57E5618E34E} = {5DD78357-6358-49BE-8826-412042A45BC1}
 		{08BCA09F-2531-4970-8F8F-209CE578B1B7} = {5DD78357-6358-49BE-8826-412042A45BC1}
 		{56734949-4A2D-4A8A-883C-FA1922DEB5D4} = {5DD78357-6358-49BE-8826-412042A45BC1}
+		{CA3BF003-71DE-4578-90BC-B1630E36BAAD} = {5DD78357-6358-49BE-8826-412042A45BC1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2958EFD3-A4B0-4B98-B941-E99769E29CCF}
