@@ -95,7 +95,6 @@ int main() {
 			void Attack() {}
 		};
 
-
 		Creature01* c = new Knight01();
 		c->Attack(); // <- 신기하게도 이 코드는 이전과 달리 사용할 수 없는 것이 확인된다.
 
@@ -103,9 +102,7 @@ int main() {
 		1. 최상단 클래스의 virtual function을 삭제했다는 것
 		2. virtual function의 시작점이 바뀌었다는 것 
 
-		이 두가지로 인해 기존 TEXTRPG에서 사용되었던 개념의 코드가 정상적으로 작동하지 않는 모습을 볼 수 있다.
-
-		*/
+		이 두가지로 인해 기존 TEXTRPG에서 사용되었던 개념의 코드가 정상적으로 작동하지 않는 모습을 볼 수 있다. */
 	}
 
 	return 0;
